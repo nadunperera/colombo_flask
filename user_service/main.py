@@ -13,7 +13,7 @@ def configure_app(app):
     app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
 
 def initialize_app(app):
-    #configure_app(app)
+    configure_app(app)
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
     api.namespaces.pop(0) #this is to remove default namespace from swagger doc
