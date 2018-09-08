@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask_restplus import fields, Model
+from flask_restplus import fields
 from service.users.restplus import api
 
 user_model = api.model('User Model', {
