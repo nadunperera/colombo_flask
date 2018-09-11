@@ -3,10 +3,7 @@ from service.users.restplus import api
 from service.users.routes import ns as user_namespace
 import settings
 
-app = Flask(__name__)
-
 def configure_app(app):
-    app.config['SERVER_NAME'] = settings.FLASK_SERVER_NAME
     app.config['SWAGGER_UI_DOC_EXPANSION'] = settings.RESTPLUS_SWAGGER_UI_DOC_EXPANSION
     app.config['RESTPLUS_VALIDATE'] = settings.RESTPLUS_VALIDATE
     app.config['RESTPLUS_MASK_SWAGGER'] = settings.RESTPLUS_MASK_SWAGGER
@@ -21,9 +18,10 @@ def initialize_app(app):
     app.register_blueprint(blueprint)
 
 def main():
-    initialize_app(app)
     app.run(debug=settings.FLASK_DEBUG)
 
+app = Flask(__name__)
+initialize_app(app)
 
 if __name__ == "__main__":
     main()

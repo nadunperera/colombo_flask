@@ -2,7 +2,7 @@ from flask_restplus import Resource
 from service.users.restplus import api
 from service.models import user_model
 
-ns = api.namespace('service/users', description='Operations related to users')
+ns = api.namespace('users', description='Operations related to user service')
 
 all_users = [
     {
